@@ -1,6 +1,7 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
+const slugify =  require('slugify'); // 
 const replaceTemplate = require('./modules/replaceTemplate');
 
 const tempOverview = fs.readFileSync(
@@ -17,7 +18,9 @@ const tempOverview = fs.readFileSync(
   );
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
+const slugs = dataObj.map(el => slugify(el.productName, {lower:true}))
 
+console.log(slugs)
 const server = http.createServer((req, res) => {
     const { query, pathname } = url.parse(req.url, true);
   
@@ -47,6 +50,10 @@ const server = http.createServer((req, res) => {
       });
       res.end(data);
   
+
+
+
+
       // Not found
     } else {
       res.writeHead(404, {
@@ -61,3 +68,15 @@ const server = http.createServer((req, res) => {
     console.log('Listening to requests on port 8000');
   });
   
+
+/*
+ node modules versions "^3.1.7"
+ 3=> major version 
+ 1=> minnor version 
+ 7=> bug fixing
+  npm outdated
+  npm update packagename
+ ^3.1.7 => ^accept all release.
+ *3.1.7 => *accept all released versions.
+ ~3.1.7 => ~Accept major with patch exclude minor release.
+*/
