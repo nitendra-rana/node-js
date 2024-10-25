@@ -1,0 +1,11 @@
+1. most of the core modules are bult around Event-driven architecture.
+
+
+  Event emitter    ==============>   Event Listner  ================> Attached callback
+(req. to server,    (emits events)                         (calls)
+  timer expiring,
+  I/O file read..
+  )
+
+
+2. This pattern is also called Observer pattern
