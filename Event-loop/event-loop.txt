@@ -1,0 +1,8 @@
+This is how event loop works.
+            
+                                                     go to start   <==yes 
+                                                                      |^|
+start => Expired Timers => I/O pooling => setImmediate => close =>remaing timers===> no => exit 
+                   (=>) CALLBACK Phases.
+            1. Process.nextTick() queue  => can run after every Phases
+            2. other Microtask queue     =>       ""
