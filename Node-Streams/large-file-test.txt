@@ -1,0 +1,10 @@
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
+=> This is a large file of 100000 lines to test streams
