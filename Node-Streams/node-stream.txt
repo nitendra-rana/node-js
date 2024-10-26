@@ -1,0 +1,30 @@
+1. Streams: used to process(read/write) data piece by piece(chunks), without completing the whole
+read or write operation, and therefore without keeping all the data in memory.
+
+useCases :
+        1. perfact for handeling large volumes of data, for eg. videos;
+        2. more memory efficient processing in terms of memory( no need to keep all data in memory) 
+           and time (we don't need to wait untill all the data is available).
+
+
+2. four kinds of stream are:(streams are instance of the EventEmitter class!)
+*****************************************************************************************************
+|S.No|     Name         |      Description |   Examples            |  Imp. Events   | Imp. functions |
+*****************************************************************************************************
+|a.  |readable Streams: |read/consume data | http req., fs read S. | data/end       |  pipe()/ read()|
+------------------------------------------------------------------------------------------------------
+|b.  |writable Streams: |  write data        |http res., fs write S. | drain/finsh    | write()/end()  |
+------------------------------------------------------------------------------------------------------
+|c.  |Duplex Streams:   |both read & write | net web socket        |                |                |
+------------------------------------------------------------------------------------------------------
+|d.  |transform streams:| duplex streams   | Zlib Gzip creatio     |                |                |
+|    |                  | transform data as|                       |                |                | 
+|    |                  | it r/writes      |                       |                |                |
+******************************************************************************************************
+
+
+
+3. Back Pressure: when we read file from the disc is much much faster than actually writing the data 
+to request from server.
+    using pipe() method: 
+        ---> readableSource.pipe(writableDestination)
