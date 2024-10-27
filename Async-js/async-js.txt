@@ -1,0 +1,7 @@
+1. Callback hell
+
+2.Promises: object that promises that we will get some data back in future.
+    http request return Promise
+    a. fullfiled Promise(successful)    b. rejected promise(error)
+
+3. Async/await = es8
