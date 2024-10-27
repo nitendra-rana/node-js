@@ -1,3 +1,5 @@
+
+
 /*
 const Calculator = require("./exportClass")
 const cal = new Calculator()
@@ -22,3 +24,9 @@ console.log(cachedModule())
 console.log(cachedModule())
 
 */
+
+//(function(exports, require, module, __fileName, __dirName){}) //module wrapper
+
+// console.log(arguments);
+// console.log(arguments);
+console.log(require('module').wrapper)
