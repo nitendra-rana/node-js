@@ -1,0 +1,28 @@
+******************************************************************************************************
+|Resolving and loading ==|==>    wrapping  ==|==> execution =|=>returning exports|===> caching       |
+|************************|*******************|***************|*******************|*******************|
+|Core Modules            |1.code is wrapped  |   code gets   |1.require function |   modules are     |
+|(require('http))        | into a speacial   |   executed    | returns exports   | cached, and the   |
+|                        | function gives    |   by node js  | of the required   | code in modules   |
+|developer Modules       | us access to      |     runtime   | module            | is only executed  |
+|require('./lib/con)     | objects.          |               |                   | in the first call |
+|                        |2. node wraps each |               |2.module.export is |                   |
+|3rd party modues(npm)   | module to iife    |               | the returned      |                   |
+|require('express);      | so that everything|               |object             |                   |
+|                        | can be private    |               |                   |                   |
+******************************************************************************************************
+
+
+wrapping:
+    1. (function(eports, require, module, __fileName, __dirName){}) => module wrapper iife
+
+    require : function to require modules;
+    module: reference to the current module.
+    exports : a refrence to module.exports, used to export object from the module
+    __fileName: absolute path of current module's file
+    __dirName: directory name of current module.
+
+
+returning export: 
+    1. use module.export to export one single variable, eg one class or one function (module.export = calculator)
+    2. use exports to export multiple named variables (exports.add = (a, b) => a+ b)
